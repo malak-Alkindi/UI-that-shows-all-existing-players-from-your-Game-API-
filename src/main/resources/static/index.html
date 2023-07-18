@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>game api</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="registration_form">
+        <div class="title">
+            Registration Form
+        </div>
+
+        <form>
+            <div class="form_wrap">
+                <div class="input_grp">
+                    <div class="input_wrap" style="
+    width: 100%;
+">
+                        <label for="name"> Name</label>
+                        <input type="text" id="name"  value="">
+
+                    </div>
+
+                </div>
+
+                <div class="input_wrap">
+                    <label>Gender</label>
+                    <ul>
+                        <li>
+                            <label class="radio_wrap">
+                                <input type="radio" name="gender" value="male" class="input_radio" checked>
+                                <span>Male</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="radio_wrap">
+                                <input type="radio" name="gender" value="female" class="input_radio">
+                                <span>Female</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="input_wrap">
+                    <label for="country">Country</label>
+                    <input type="text" id="country">
+                </div>
+
+
+
+                <div class="input_wrap">
+                    <input onclick="createPlayer()" type="submit" value="create player" class="submit_btn">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="registration_form">
+        <div class="title">
+            list of players
+        </div>
+        <ol id="parentList" class="playerList">
+
+        </ol>
+
+    </div>
+
+
+    <div class="registration_form">
+        <div class="title">
+            update of players
+        </div>
+
+        <form>
+            <div class="form_wrap">
+
+                <div class="input_grp">
+                    <div class="input_wrap" style="
+    width: 100%;
+">
+                        <label for="name">enter the id of player you want to update</label>
+                        <input type="text" id="playerid"  value="">
+
+                    </div>
+
+                </div>
+
+                <div class="input_grp">
+                    <div class="input_wrap" style="
+    width: 100%;
+">
+                        <label for="name"> Name</label>
+                        <input type="text" id="uname"  value="">
+
+                    </div>
+
+                </div>
+
+                <div class="input_wrap">
+                    <label>Gender</label>
+                    <ul>
+                        <li>
+                            <label class="radio_wrap">
+                                <input type="radio" name="ugender" value="male" class="input_radio" checked>
+                                <span>Male</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="radio_wrap">
+                                <input type="radio" name="ugender" value="female" class="input_radio">
+                                <span>Female</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="input_wrap">
+                    <label for="country">Country</label>
+                    <input type="text" id="ucountry">
+                </div>
+
+
+
+
+                <div class="input_wrap">
+                    <input onclick="updatePlayer()" type="submit" value="update player" class="submit_btn">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="registration_form">
+        <div class="title">
+            delete of players
+        </div>
+        <form>
+            <div class="form_wrap">
+
+                <div class="input_grp">
+                    <div class="input_wrap" style="
+    width: 100%;
+">
+                        <label for="name">enter the id of player you want to delete</label>
+                        <input type="text" id="dplayerid"  value="">
+
+                    </div>
+
+                </div>
+
+                <div class="input_wrap">
+                    <input onclick="deletePlayer()" type="submit" value="delete player" class="submit_btn">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+<script src="index.js"></script>
+</body>
+</html>
