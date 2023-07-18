@@ -22,11 +22,11 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
-    @GetMapping(path = "get/{id}")
+    @GetMapping(path = "{id}")
     public Player getSpecificPlayer(@PathVariable(name = "id") int id) {
         Player playerFound = null;
         if (Strings.isNotBlank(String.valueOf(id))){
-            playerFound = playerService.getSpecificPlayer(String.valueOf(id));
+            playerFound = playerService.getSpecificPlayer(id);
         }
         return playerFound;
     }
@@ -43,8 +43,9 @@ public class PlayerController {
 @PutMapping(path = "{id}")
     public ResponseEntity<Player> updateProduct(@PathVariable int id, @RequestBody Player updatedProduct) {
     Player response = playerService.updatePlayer(id, updatedProduct);
-
+    System.out.println("this is the responed" +response);
         if (response != null) {
+
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.notFound().build();

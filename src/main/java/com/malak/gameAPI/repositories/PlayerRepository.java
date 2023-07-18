@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Repository
 public interface PlayerRepository extends JpaRepository<Player, String> {
@@ -20,5 +21,5 @@ public interface PlayerRepository extends JpaRepository<Player, String> {
     @Modifying
     @Query(value = "DELETE FROM Player a WHERE a.id = :id")
     void delByID(@Param("id") Integer id);
-
+    Optional<Player> findById(int playerId);
 }

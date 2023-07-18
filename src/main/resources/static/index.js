@@ -98,7 +98,24 @@ newItem.style.backgroundColor = "rgb(235 208 206 / 30%)";
 
 
 
+function CheckIfExist(){
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("http://localhost:9000/api/v1/player/2", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+
+}
+
   function updatePlayer(){
+
+
+
     const  player={
 
       name:"",

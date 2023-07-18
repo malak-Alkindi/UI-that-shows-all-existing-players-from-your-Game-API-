@@ -20,7 +20,7 @@ public class PlayerService {
         return playerRepository.findAll();
     }
 
-    public Player getSpecificPlayer(String playerId) {
+    public Player getSpecificPlayer(int playerId) {
         Player foundPlayer = null;
         Optional<Player> optionalPlayer = playerRepository.findById(playerId);
 
@@ -76,5 +76,6 @@ public class PlayerService {
     public void deletePersonByName(String name) {
         playerRepository.deleteByName(name);
     }
+
 
 }
