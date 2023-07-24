@@ -102,13 +102,13 @@
                     <ul>
                         <li>
                             <label class="radio_wrap">
-                                <input type="radio" name="ugender" value="male" class="input_radio" checked>
+                                <input type="radio" id='c1'name="ugender" value="male" class="input_radio" checked>
                                 <span>Male</span>
                             </label>
                         </li>
                         <li>
                             <label class="radio_wrap">
-                                <input type="radio" name="ugender" value="female" class="input_radio">
+                                <input  id='c2'type="radio" name="ugender" value="female" class="input_radio">
                                 <span>Female</span>
                             </label>
                         </li>
@@ -122,7 +122,7 @@
 
 
                 <div class="input_wrap">
-                    <input onclick="CheckIfExist()" type="submit" value="check player exist" class="submit_btn">
+                    <input onclick="registerOnePlayer()" type="submit" value="check player exist" class="submit_btn">
                 </div>
 
                 <div class="input_wrap">
@@ -161,6 +161,7 @@
 </div>
 
 
+<div id="test"></div>
 
 <script src="index.js"></script>
 </body>

@@ -33,12 +33,8 @@ console.log("Hello World!!!");
 
 const allPlyers=[]
 /*            functions               */
-function registerOnePlayer(){
 
 
-
-
-}
 
 console.log("DOne with Hello World!!!");
 
@@ -87,6 +83,16 @@ newItem.innerHTML+= '<p><span style="color: #545871;font-weight: bolder;">id :  
  newItem.innerHTML+= '<p><span style="color: #545871;font-weight: bolder;">name :   </span>' +  e.name + '</p>';
    newItem.innerHTML += '<p><span style="color: #545871;font-weight: bolder;">gender :   </span>' +  e.gender + '</p>';
    newItem.innerHTML += '<p><span style="color: #545871;font-weight: bolder;">country :   </span>' +  e.country + '</p>';
+var inputElement = document.createElement('input');
+inputElement.type = "button"
+inputElement.value="show the name "
+inputElement.addEventListener('click', function(){
+  updateTest(e);
+});
+newItem.append(inputElement)
+
+
+
 newItem.style.backgroundColor = "rgb(235 208 206 / 30%)";
  newItem.style.padding= "10PX";
  newItem.style.margin= "5PX";
@@ -95,22 +101,6 @@ newItem.style.backgroundColor = "rgb(235 208 206 / 30%)";
 })
 })
   .catch(error => console.log('error', error));
-
-
-
-function CheckIfExist(){
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("http://localhost:9000/api/v1/player/2", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
-
-}
 
   function updatePlayer(){
 
@@ -151,17 +141,60 @@ fetch("http://localhost:9000/api/v1/player/"+document.getElementById("playerid")
   .catch(error => console.log('error', error));
   }
 
+function registerOnePlayer(){
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
 
+fetch("http://localhost:9000/api/v1/player/"+document.getElementById("playerid").value, requestOptions)
+.then((response) => {return response.json()})
+.then((e)=>{
+alert(e.name +" "+e.gender+" "+e.country)
+
+document.getElementById("playerid").value=e.id
+   document.getElementById("uname").value=e.name
+    document.querySelector('input[name="ugender"]:checked').value=e.gender
+ document.getElementById("ucountry").value=e.country
+
+
+
+})
+  .catch(error => console.log('error', error));
+
+
+
+
+}
 function deletePlayer(){
+
+
 var requestOptions = {
   method: 'DELETE',
   redirect: 'follow'
 };
-
-
 fetch("http://localhost:9000/api/v1/player/"+document.getElementById("dplayerid").value, requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+
+}
+
+function updateTest(e){
+
+document.getElementById("playerid").value=e.id
+   document.getElementById("uname").value=e.name
+   const option1 = document.getElementById('c1');
+   const option2 = document.getElementById('c2');
+   if(e.gender=='male'){
+    option1.checked=true
+    option2.checked=false
+   }
+   else{
+    option1.checked=false
+    option2.checked=true
+   }
+
+ 
+ document.getElementById("ucountry").value=e.country
 
 }
