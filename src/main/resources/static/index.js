@@ -83,24 +83,24 @@ newItem.innerHTML+= '<p><span style="color: #545871;font-weight: bolder;">id :  
  newItem.innerHTML+= '<p><span style="color: #545871;font-weight: bolder;">name :   </span>' +  e.name + '</p>';
    newItem.innerHTML += '<p><span style="color: #545871;font-weight: bolder;">gender :   </span>' +  e.gender + '</p>';
    newItem.innerHTML += '<p><span style="color: #545871;font-weight: bolder;">country :   </span>' +  e.country + '</p>';
-var inputElement = document.createElement('input');
+newItem.style.backgroundColor = "rgb(235 208 206 / 30%)";
+ newItem.style.margin= "5PX";
+    newItem.style.borderRadius= "10px";
+    var inputElement = document.createElement('input');
 inputElement.type = "button"
-inputElement.value="show the name "
+inputElement.value="update this player "
 inputElement.addEventListener('click', function(){
   updateTest(e);
 });
 newItem.append(inputElement)
-
-
-
-newItem.style.backgroundColor = "rgb(235 208 206 / 30%)";
- newItem.style.padding= "10PX";
- newItem.style.margin= "5PX";
-    newItem.style.borderRadius= "10px";
  parentElement.appendChild(newItem)
 })
 })
   .catch(error => console.log('error', error));
+
+
+
+
 
   function updatePlayer(){
 
@@ -180,7 +180,6 @@ fetch("http://localhost:9000/api/v1/player/"+document.getElementById("dplayerid"
 }
 
 function updateTest(e){
-
 document.getElementById("playerid").value=e.id
    document.getElementById("uname").value=e.name
    const option1 = document.getElementById('c1');
@@ -194,7 +193,9 @@ document.getElementById("playerid").value=e.id
     option2.checked=true
    }
 
- 
+
  document.getElementById("ucountry").value=e.country
+
+
 
 }
